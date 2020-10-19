@@ -15,6 +15,9 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended:true}));
 
+const db = require("./app/models");
+db.sequelize.sync();
+
 //simple route
 app.get("/", (req, res)=>{
     res.json({Message:'Welcome to Node/PostgreSQL sample CRUD application'})
